@@ -356,16 +356,16 @@ tile_set = SubResource("TileSet_ulsdi")
 [node name="GridDisplay" type="Control" parent="HUD" unique_id=2123274884]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 27.0
-offset_bottom = 11.0
+offset_right = 319.0
+offset_bottom = 180.0
 script = ExtResource("3_34hod")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/GridDisplay" unique_id=65611087]
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 31.0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 111.0
+offset_bottom = 35.0
 scale = Vector2(0.22, 0.22)
 
 [node name="PanelContainer" type="PanelContainer" parent="HUD/GridDisplay/MarginContainer" unique_id=959513799]

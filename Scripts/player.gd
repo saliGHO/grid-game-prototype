@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const tilesize = 16
 
+signal player_did_action
+
 var inputs = {
 	"key_up" : Vector2.UP,
 	"key_down" : Vector2.DOWN,
@@ -16,6 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				$AnimatedSprite2D.flip_h = true
 			elif event.is_action_pressed("key_right"):
 				$AnimatedSprite2D.flip_h = false
+			emit_signal("player_did_action")
 			move(dir)
 
 
