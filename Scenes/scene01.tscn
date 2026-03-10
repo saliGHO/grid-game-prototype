@@ -354,6 +354,7 @@ tile_set = SubResource("TileSet_ulsdi")
 [node name="HUD" type="Node" parent="." unique_id=1607997145]
 
 [node name="GridDisplay" type="Control" parent="HUD" unique_id=2123274884]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 319.0
@@ -361,7 +362,8 @@ offset_bottom = 180.0
 script = ExtResource("3_34hod")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/GridDisplay" unique_id=65611087]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_left = 7.0
 offset_top = 4.0
 offset_right = 111.0
@@ -383,6 +385,7 @@ zoom = Vector2(4, 4)
 position = Vector2(263, 84)
 
 [node name="AI" parent="." unique_id=1987026970 instance=ExtResource("2_ulsdi")]
+unique_name_in_owner = true
 position = Vector2(72, 84)
 
 [connection signal="toggled" from="HUD/GridDisplay/MarginContainer/PanelContainer/CheckBox" to="HUD/GridDisplay" method="toggle_grid_display"]

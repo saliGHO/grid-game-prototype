@@ -1,9 +1,5 @@
 extends CharacterBody2D
 
-@export var player_node: CharacterBody2D
-
-const turns_to_move: int = 1
-
 var grid: AStarGrid2D
 
 var current_cell: Vector2i
@@ -18,4 +14,11 @@ func setup(_grid: AStarGrid2D):
 func pos_to_cell(pos: Vector2):
 	return pos / grid.cell_size
 
-	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		var target = Vector2i(pos_to_cell(event.position))
+		if target != target_cell:
+			move_pts = grid.get_point_path(current_cell, target)
+			move_pts = (move_pts as Array).map(func (p): return p + grid.cell_size / 2.0)
+			$PathPreviz.points = move_pts
+			target_cell = target

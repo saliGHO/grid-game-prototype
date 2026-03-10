@@ -60,7 +60,7 @@ height = 14.0
 [node name="AI" type="CharacterBody2D" unique_id=1987026970]
 script = ExtResource("1_xv65i")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1970423582]
+[node name="PathPreviz" type="Line2D" parent="." unique_id=1970423582]
 top_level = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1976838094]
