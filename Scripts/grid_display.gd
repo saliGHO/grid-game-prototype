@@ -1,5 +1,8 @@
 extends Control
 
+@export var sub_viewport_container: SubViewportContainer
+
+
 var grid: AStarGrid2D:
 	set(v): grid = v; queue_redraw()
 var show_grid_display: bool:
@@ -15,4 +18,4 @@ func _draw() -> void:
 		for y in grid.region.size.y:
 			var p = Vector2(x, y)
 			var col = Color(1, 0, 0, 0.3) if grid.is_point_solid(p) else Color(0, 1, 0, 0.3)
-			draw_rect(Rect2(p * grid.cell_size, grid.cell_size), col)
+			draw_rect(Rect2(p * grid.cell_size*sub_viewport_container.stretch_shrink, grid.cell_size*sub_viewport_container.stretch_shrink), col)

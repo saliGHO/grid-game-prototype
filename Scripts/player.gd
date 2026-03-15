@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+@onready var ai: CharacterBody2D = %AI
+
 const tilesize = 16
 
-#signal player_did_action
-
+signal player_did_action
 var inputs = {
 	"key_up" : Vector2.UP,
 	"key_down" : Vector2.DOWN,
@@ -15,10 +16,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			if event.is_action_pressed("key_left"):
-				$AnimatedSprite2D.flip_h = true
+				$PlayerSprite.flip_h = true
 			elif event.is_action_pressed("key_right"):
-				$AnimatedSprite2D.flip_h = false
-			#emit_signal("player_did_action")
+				$PlayerSprite.flip_h = false
+			emit_signal("player_did_action")
 			move(dir)
 
 

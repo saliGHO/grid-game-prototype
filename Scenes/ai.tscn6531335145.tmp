@@ -57,15 +57,14 @@ animations = [{
 radius = 4.0
 height = 14.0
 
-[node name="AI" type="CharacterBody2D" unique_id=1987026970 node_paths=PackedStringArray("path_previz")]
+[node name="AI" type="CharacterBody2D" unique_id=1987026970]
 script = ExtResource("1_xv65i")
-path_previz = NodePath("PathPreviz")
 
 [node name="PathPreviz" type="Line2D" parent="." unique_id=1970423582]
 top_level = true
 width = 1.0
 
-[node name="AiSprite" type="AnimatedSprite2D" parent="." unique_id=1976838094]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1976838094]
 sprite_frames = SubResource("SpriteFrames_7gr52")
 autoplay = "default"
 frame_progress = 0.27060312

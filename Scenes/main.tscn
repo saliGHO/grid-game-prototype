@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://p0cuuflxkqy8"]
+
+[ext_resource type="PackedScene" uid="uid://d0e6lflrj7h60" path="res://Scenes/scene01.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://cfg42qppxakyn" path="res://Scripts/grid_display.gd" id="2_bo1nx"]
+
+[node name="Main" type="Node2D" unique_id=1653559999]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=90692911]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1177305616]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1934119324]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="Game" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=350958713 instance=ExtResource("1_jjgbg")]
+
+[node name="HUD" type="Node" parent="CanvasLayer" unique_id=859578884]
+
+[node name="GridDisplay" type="Control" parent="CanvasLayer/HUD" unique_id=26234269 node_paths=PackedStringArray("sub_viewport_container")]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("2_bo1nx")
+sub_viewport_container = NodePath("../../SubViewportContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/GridDisplay" unique_id=140413014]
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 32.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/GridDisplay/MarginContainer" unique_id=193871502]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/HUD/GridDisplay/MarginContainer/PanelContainer" unique_id=112492993]
+layout_mode = 2
+text = "show grid"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=719502300]
+anchor_mode = 0
+
+[connection signal="toggled" from="CanvasLayer/HUD/GridDisplay/MarginContainer/PanelContainer/CheckBox" to="CanvasLayer/HUD/GridDisplay" method="toggle_grid_display"]
